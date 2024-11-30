@@ -25,65 +25,65 @@ class HomeScreen extends ConsumerWidget {
           ],
         ),
         drawer: MainDrawer(),
-        body: RefreshIndicator( child: 
-        CustomScrollView(
-          primary: false,
-          physics: const AlwaysScrollableScrollPhysics(),
-          slivers: <Widget>[
-            SliverPadding(
-              padding: const EdgeInsets.all(20),
-              sliver: SliverGrid.count(
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                crossAxisCount: 2,
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[100],
-                    child: const Text("Area 1"),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.green[200],
-                    child: const Text('Area 2'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.blue[300],
-                    child: const Text('Area 3'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.blue[400],
-                    child: const Text('Area 4'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.orange[500],
-                    child: const Text('Area 5'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.orange[600],
-                    child: const Text('Area 6'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.red[700],
-                    child: const Text('Area 7'),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    color: Colors.red[800],
-                    child: const Text('Area 8'),
-                  ),
-                ],
+        body: RefreshIndicator(
+          child: CustomScrollView(
+            primary: false,
+            physics: const AlwaysScrollableScrollPhysics(),
+            slivers: <Widget>[
+              SliverPadding(
+                padding: const EdgeInsets.all(20),
+                sliver: SliverGrid.count(
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  children: <Widget>[
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.green[100],
+                      child: const Text("Area 1"),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.green[200],
+                      child: const Text('Area 2'),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.blue[300],
+                      child: const Text('Area 3'),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.blue[400],
+                      child: const Text('Area 4'),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.orange[500],
+                      child: const Text('Area 5'),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.orange[600],
+                      child: const Text('Area 6'),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.red[700],
+                      child: const Text('Area 7'),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Colors.red[800],
+                      child: const Text('Area 8'),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        ),
-        onRefresh: () {
-          return Future.delayed(
+            ],
+          ),
+          onRefresh: () {
+            return Future.delayed(
               Duration(seconds: 1),
               () {
                 /// adding elements in list after [1 seconds] delay
@@ -92,7 +92,7 @@ class HomeScreen extends ConsumerWidget {
                 /// Remember: [setState] is necessary so that
                 /// build method will run again otherwise
                 /// list will not show all elemen
- 
+
                 // showing snackbar
                 // _scaffoldKey.currentState.showSnackBar(
                 //   SnackBar(
@@ -101,8 +101,7 @@ class HomeScreen extends ConsumerWidget {
                 // );
               },
             );
-        },
-    )
-    );
+          },
+        ));
   }
 }
