@@ -3,5 +3,4 @@ import 'package:auxilio_emergencial/source/features/user/application/api_service
 import 'package:auxilio_emergencial/source/features/user/domain/user.dart';
 
 final apiService = Provider<UserApiService>((ref) => UserApiService());
-final userDataProvider =
-    FutureProvider<List<User>>((ref) => ref.read(apiService).getUser());
+final userDataProvider = FutureProvider<List<User>>((ref) => ref.read(apiService).getUser());

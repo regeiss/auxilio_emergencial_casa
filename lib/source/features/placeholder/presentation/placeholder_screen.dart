@@ -12,28 +12,20 @@ class PlaceholderScreen extends ConsumerWidget {
     final actions = AppBarPopUpMenuActions();
     // ignore: unused_local_variable
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(Strings.placeholderPage),
-          actions: <Widget>[
-            PopupMenuButton<int>(
-              onSelected: (item) => actions.handleClick(item, context, ref),
-              itemBuilder: (context) => [
-                PopupMenuItem<int>(value: 0, child: Text('Logout')),
-                PopupMenuItem<int>(value: 1, child: Text('Ajustes')),
-              ],
-            ),
-          ],
-        ),
-        drawer: MainDrawer(),
-        body: Center(
-            child: Text(
-          "Aguardando desenvolvimento",
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.blue[800],
-            fontWeight: FontWeight.w700,
-            fontStyle: FontStyle.normal,
+      appBar: AppBar(
+        title: const Text(Strings.placeholderPage),
+        actions: <Widget>[
+          PopupMenuButton<int>(
+            onSelected: (item) => actions.handleClick(item, context, ref),
+            itemBuilder: (context) => [
+              PopupMenuItem<int>(value: 0, child: Text('Logout')),
+              PopupMenuItem<int>(value: 1, child: Text('Ajustes')),
+            ],
           ),
-        )));
+        ],
+      ),
+      drawer: MainDrawer(),
+      body: Text("Em desenvolvimento"),
+    );
   }
 }

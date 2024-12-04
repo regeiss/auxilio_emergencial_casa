@@ -29,8 +29,7 @@ class UserApiService {
           logResponseHeaders: false,
         ),
       );
-      var response =
-          await dio.get('https://jsonplaceholder.typicode.com/users');
+      var response = await dio.get('https://jsonplaceholder.typicode.com/users');
 
       var users = (response.data as List);
 

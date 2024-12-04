@@ -5,7 +5,7 @@ import 'package:auxilio_emergencial/source/core/router/scaffold_with_nested_navi
 import 'package:auxilio_emergencial/source/features/ajustes/presentation/settings_screen.dart';
 import 'package:auxilio_emergencial/source/features/auth/data/firebase_auth_repository.dart';
 import 'package:auxilio_emergencial/source/features/auth/presentation/custom_sign_in_screen.dart';
-
+// import 'package:auxilio_emergencial/source/features/base/view/base_screen.dart';
 import 'package:auxilio_emergencial/source/features/home/presentation/home_screen.dart';
 import 'package:auxilio_emergencial/source/features/onboarding/data/onboarding_repository.dart';
 import 'package:auxilio_emergencial/source/features/onboarding/presentation/views/onboarding_screen.dart';
@@ -27,10 +27,8 @@ final _cadastroNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'cadastro');
 final _abrigoNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'abrigo');
 final _listaNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'lista');
 final _perfilNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'perfil');
-final _responsavelNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: 'responsavel');
-final _ajustesNavigatorKey =
-    GlobalKey<NavigatorState>(debugLabel: 'responsavel');
+final _responsavelNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'responsavel');
+final _ajustesNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'responsavel');
 
 enum AppRoute {
   onboarding,
@@ -143,7 +141,7 @@ GoRouter goRouter(GoRouterRef ref) {
               GoRoute(
                 path: '/cadastro',
                 name: AppRoute.cadastro.name,
-                pageBuilder: (context, state) => const NoTransitionPage(
+                pageBuilder: (context, state) => NoTransitionPage(
                   child: PlaceholderScreen(),
                 ),
               ),
@@ -155,7 +153,7 @@ GoRouter goRouter(GoRouterRef ref) {
               GoRoute(
                 path: '/abrigo',
                 name: AppRoute.abrigos.name,
-                pageBuilder: (context, state) => const NoTransitionPage(
+                pageBuilder: (context, state) => NoTransitionPage(
                   child: PlaceholderScreen(),
                 ),
               ),
@@ -191,24 +189,28 @@ GoRouter goRouter(GoRouterRef ref) {
               GoRoute(
                 path: '/responsavel',
                 name: AppRoute.responsavel.name,
-                pageBuilder: (context, state) => const NoTransitionPage(
+                pageBuilder: (context, state) => NoTransitionPage(
+                  key: state.pageKey,
                   child: ListaUserScreen(),
                 ),
-                // routes: [
-                //   GoRoute(
-                //     path: 'edit',
-                //     name: AppRoute.editresponsavel.name,
-                //     parentNavigatorKey: _rootNavigatorKey,
-                //     pageBuilder: (context, state) {
-                //       final userId = state.pathParameters['id'];
-                //       final user = state.extra as User?;
-                //       return MaterialPage(
-                //         fullscreenDialog: true,
-                //         child: EditUserScreen(user: user),
-                //       );
-                //     },
-                //   ),
-                // ],
+                routes: [
+                  GoRoute(
+                    path: ':id',
+                    name: AppRoute.editresponsavel.name,
+                    parentNavigatorKey: _rootNavigatorKey,
+                    pageBuilder: (context, state) {
+                      final id =
+                          int.parse(state.pathParameters['id'] as String);
+                      final user =
+                          state.extra is User ? state.extra as User : null;
+                      return MaterialPage(
+                        // fullscreenDialog: true,
+                        key: state.pageKey,
+                        child: UserDetalheScreen(userId: id, user: user),
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
