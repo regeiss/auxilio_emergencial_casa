@@ -3,6 +3,7 @@ import 'package:firebase_ui_localizations/firebase_ui_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:auxilio_emergencial/source/theme/theme_data.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:form_builder_validators/localization/l10n.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../core/router/app_router.dart';
 
@@ -21,6 +22,7 @@ class MainApp extends ConsumerWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
         FirebaseUILocalizations.delegate,
+        FormBuilderLocalizations.delegate,
       ],
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
