@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:auxilio_emergencial/source/features/common/appbar_menu_action.dart';
 import 'package:auxilio_emergencial/source/features/common/widgets/drawer.dart';
 import 'package:auxilio_emergencial/source/features/user/data/user_repository.dart';

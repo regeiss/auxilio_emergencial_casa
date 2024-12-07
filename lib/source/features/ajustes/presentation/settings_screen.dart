@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auxilio_emergencial/source/features/common/widgets/drawer.dart';
 import 'package:auxilio_emergencial/source/constants/strings.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
 
@@ -14,13 +15,12 @@ class AjustesScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text(Strings.ajustes),
         actions: <Widget>[
-          PopupMenuButton<int>(
-            onSelected: (item) => handleClick(item, ref),
-            itemBuilder: (context) => [
-              PopupMenuItem<int>(value: 0, child: Text('Logout')),
-              PopupMenuItem<int>(value: 1, child: Text('Ajustes')),
-            ],
-          ),
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
         ],
       ),
       drawer: MainDrawer(),

@@ -1,5 +1,4 @@
 import 'package:auxilio_emergencial/source/features/common/extension/column_extension.dart';
-import 'package:auxilio_emergencial/source/features/common/widgets/drawer.dart';
 import 'package:auxilio_emergencial/source/features/user/domain/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -26,14 +25,13 @@ class UserDetalheScreen extends ConsumerWidget {
     // final userData = ref.watch(userDataProvider.future);
     return Scaffold(
         appBar: AppBar(
-          title: const Text('User'),
+          title: Text('Id: ${user!.id.toString()}'),
           actions: <Widget>[
-            PopupMenuButton<int>(
-              onSelected: (item) => handleClick(item, ref),
-              itemBuilder: (context) => [
-                PopupMenuItem<int>(value: 0, child: Text('Logout')),
-                PopupMenuItem<int>(value: 1, child: Text('Ajustes')),
-              ],
+            TextButton(
+              onPressed: () {
+                // Your action here
+              },
+              child: Text('Salvar'),
             ),
           ],
         ),
@@ -82,7 +80,7 @@ class UserDetalheScreen extends ConsumerWidget {
                     FormBuilderTextField(
                       key: _suiteFieldKey,
                       initialValue: user!.address!.suite,
-                      name: 'endereço',
+                      name: 'numero',
                       decoration: const InputDecoration(labelText: 'Numero'),
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(),
@@ -91,7 +89,7 @@ class UserDetalheScreen extends ConsumerWidget {
                     FormBuilderTextField(
                       key: _cidadeFieldKey,
                       initialValue: user!.address!.city,
-                      name: 'endereço',
+                      name: 'cidade',
                       decoration: const InputDecoration(labelText: 'Cidade'),
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(),
@@ -100,7 +98,7 @@ class UserDetalheScreen extends ConsumerWidget {
                     FormBuilderTextField(
                       key: _cepFieldKey,
                       initialValue: user!.address!.zipcode,
-                      name: 'endereço',
+                      name: 'cep',
                       decoration: const InputDecoration(labelText: 'CEP'),
                       validator: FormBuilderValidators.compose([
                         FormBuilderValidators.required(),

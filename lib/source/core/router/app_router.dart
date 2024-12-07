@@ -28,7 +28,6 @@ final _abrigoNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'abrigo');
 final _listaNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'lista');
 final _perfilNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'perfil');
 final _responsavelNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'responsavel');
-final _ajustesNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'responsavel');
 
 enum AppRoute {
   onboarding,
@@ -118,6 +117,13 @@ GoRouter goRouter(GoRouterRef ref) {
           child: CustomSignInScreen(),
         ),
       ),
+      GoRoute(
+                path: '/ajustes',
+                name: AppRoute.ajustes.name,
+                pageBuilder: (context, state) => const NoTransitionPage(
+                  child: AjustesScreen(),
+                ),
+              ),
       StatefulShellRoute.indexedStack(
         pageBuilder: (context, state, navigationShell) => NoTransitionPage(
           child: ScaffoldWithNestedNavigation(navigationShell: navigationShell),
@@ -211,18 +217,6 @@ GoRouter goRouter(GoRouterRef ref) {
                     },
                   ),
                 ],
-              ),
-            ],
-          ),
-          StatefulShellBranch(
-            navigatorKey: _ajustesNavigatorKey,
-            routes: [
-              GoRoute(
-                path: '/ajustes',
-                name: AppRoute.ajustes.name,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: AjustesScreen(),
-                ),
               ),
             ],
           ),
