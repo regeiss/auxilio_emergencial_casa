@@ -26,8 +26,9 @@ final _homeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'home');
 final _cadastroNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'cadastro');
 final _abrigoNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'abrigo');
 final _listaNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'lista');
-final _perfilNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'perfil');
-final _responsavelNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'responsavel');
+// final _perfilNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'perfil');
+final _responsavelNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: 'responsavel');
 
 enum AppRoute {
   onboarding,
@@ -118,10 +119,17 @@ GoRouter goRouter(GoRouterRef ref) {
         ),
       ),
       GoRoute(
-                path: '/ajustes',
-                name: AppRoute.ajustes.name,
+        path: '/ajustes',
+        name: AppRoute.ajustes.name,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: AjustesScreen(),
+        ),
+      ),
+      GoRoute(
+                path: '/perfil',
+                name: AppRoute.perfil.name,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: AjustesScreen(),
+                  child: ProfileScreen(),
                 ),
               ),
       StatefulShellRoute.indexedStack(
@@ -177,18 +185,18 @@ GoRouter goRouter(GoRouterRef ref) {
               ),
             ],
           ),
-          StatefulShellBranch(
-            navigatorKey: _perfilNavigatorKey,
-            routes: [
-              GoRoute(
-                path: '/perfil',
-                name: AppRoute.perfil.name,
-                pageBuilder: (context, state) => const NoTransitionPage(
-                  child: ProfileScreen(),
-                ),
-              ),
-            ],
-          ),
+          // StatefulShellBranch(
+          //   navigatorKey: _perfilNavigatorKey,
+          //   routes: [
+          //     GoRoute(
+          //       path: '/perfil',
+          //       name: AppRoute.perfil.name,
+          //       pageBuilder: (context, state) => const NoTransitionPage(
+          //         child: ProfileScreen(),
+          //       ),
+          //     ),
+          //   ],
+          // ),
           StatefulShellBranch(
             navigatorKey: _responsavelNavigatorKey,
             routes: [

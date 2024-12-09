@@ -1,3 +1,4 @@
+import 'package:auxilio_emergencial/source/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:auxilio_emergencial/source/features/common/widgets/drawer.dart';
 import 'package:auxilio_emergencial/source/constants/strings.dart';
@@ -17,7 +18,7 @@ class AjustesScreen extends ConsumerWidget {
         actions: <Widget>[
           TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                context.goNamed(AppRoute.home.name);
               },
               child: Text('OK'),
             ),
