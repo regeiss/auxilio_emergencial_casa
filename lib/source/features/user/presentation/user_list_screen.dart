@@ -31,6 +31,9 @@ class ListaUserScreen extends ConsumerWidget {
       ),
       drawer: MainDrawer(),
       body: RefreshIndicator(
+          color: Colors.white,
+          backgroundColor: Colors.blue,
+          strokeWidth: 4.0,
           child: FutureBuilder(
             future: userData,
             builder: ((context, snapshot) {
@@ -58,18 +61,15 @@ class ListaUserScreen extends ConsumerWidget {
                             builder: (BuildContext context) {
                               return AlertDialog(
                                 title: Text('Confirme a exclusão'),
-                                content:
-                                    Text('Você quer mesmo excluir este item?'),
+                                content: Text('Você quer mesmo excluir este item?'),
                                 actions: <Widget>[
                                   TextButton(
                                     child: Text('Cancelar'),
-                                    onPressed: () =>
-                                        Navigator.of(context).pop(false),
+                                    onPressed: () => Navigator.of(context).pop(false),
                                   ),
                                   TextButton(
                                     child: Text('Excluir'),
-                                    onPressed: () =>
-                                        Navigator.of(context).pop(true),
+                                    onPressed: () => Navigator.of(context).pop(true),
                                   ),
                                 ],
                               );
@@ -85,8 +85,7 @@ class ListaUserScreen extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Icon(Icons.delete, color: Colors.white),
-                            Text('Excluir',
-                                style: TextStyle(color: Colors.white)),
+                            Text('Excluir', style: TextStyle(color: Colors.white)),
                           ],
                         ),
                       ),
@@ -96,8 +95,7 @@ class ListaUserScreen extends ConsumerWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             Icon(Icons.delete, color: Colors.white),
-                            Text('Excluir',
-                                style: TextStyle(color: Colors.white)),
+                            Text('Excluir', style: TextStyle(color: Colors.white)),
                           ],
                         ),
                       ),
@@ -132,7 +130,9 @@ class ListaUserScreen extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color.fromRGBO(82, 170, 94, 1.0),
         tooltip: 'Increment',
-        onPressed: () {},
+        onPressed: () => context.goNamed(
+          AppRoute.addresponsavel.name,
+        ),
         child: const Icon(Icons.add, color: Colors.white, size: 28),
       ),
     );

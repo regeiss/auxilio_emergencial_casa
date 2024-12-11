@@ -65,8 +65,8 @@ mixin BaseScreen<Page extends BasePageScreen> on BasePageScreenState<Page> {
           ],
         ),
         body: Container(
-          child: body(),
           color: Colors.white,
+          child: body(),
         ));
   }
 
@@ -74,7 +74,7 @@ mixin BaseScreen<Page extends BasePageScreen> on BasePageScreenState<Page> {
 }
 
 class HomeScreen extends BasePageScreen {
-  HomeScreen({required super.key});
+  const HomeScreen({required super.key});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -95,10 +95,6 @@ class _HomeScreenState extends BasePageScreenState<HomeScreen> with BaseScreen {
     return "Home";
   }
 
-  @override
-  void isBackButton(bool isBack) {
-    super.isBackButton(isBack);
-  }
 
   // THIS IS BACK BUTTON CLICK HANDLER
   @override

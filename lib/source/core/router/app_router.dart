@@ -10,8 +10,8 @@ import 'package:auxilio_emergencial/source/features/home/presentation/home_scree
 import 'package:auxilio_emergencial/source/features/onboarding/data/onboarding_repository.dart';
 import 'package:auxilio_emergencial/source/features/onboarding/presentation/views/onboarding_screen.dart';
 import 'package:auxilio_emergencial/source/features/placeholder/presentation/placeholder_screen.dart';
-import 'package:auxilio_emergencial/source/features/responsavel/presentation/lista_responsavel_screen.dart';
 import 'package:auxilio_emergencial/source/features/user/domain/user.dart';
+import 'package:auxilio_emergencial/source/features/user/presentation/user_add_screen.dart';
 import 'package:auxilio_emergencial/source/features/user/presentation/user_detail_screen.dart';
 import 'package:auxilio_emergencial/source/features/user/presentation/user_list_screen.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
@@ -221,6 +221,18 @@ GoRouter goRouter(GoRouterRef ref) {
                         // fullscreenDialog: true,
                         key: state.pageKey,
                         child: UserDetalheScreen(userId: id, user: user),
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: 'responsavel/add',
+                    name: AppRoute.addresponsavel.name,
+                    parentNavigatorKey: _rootNavigatorKey,
+                    pageBuilder: (context, state) {
+                      return MaterialPage(
+                        // fullscreenDialog: true,
+                        key: state.pageKey,
+                        child: UserAddScreen(),
                       );
                     },
                   ),

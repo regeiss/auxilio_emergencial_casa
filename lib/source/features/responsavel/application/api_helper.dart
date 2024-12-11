@@ -20,9 +20,9 @@ class ApiHelper {
   // return Weather.fromJson(response);
   // }
 
-  static Future<void> fetchLocation() async {
-    final location = await getLocation();
-    lat = location.latitude;
-    lon = location.longitude;
-  }
+  // static Future<void> fetchLocation() async {
+  //   final location = await getLocation();
+  //   lat = location.latitude;
+  //   lon = location.longitude;
+  // }
 }
